@@ -36,7 +36,28 @@
 </script>
 
 <script type="text/template" id="action-value-select-option">
-	<option value="<%= id %>" <%- (typeof(value) != 'undefined' && (typeof(value) === 'object' && value.indexOf(id.toString()) > -1)) ? 'selected' : (typeof(value) != 'undefined' && value == id ? 'selected' : '')%>><%= name %></option>
+	<option value="<%= id %>" <%- (typeof(value) != 'undefined' && (typeof(value) === 'object' && value.indexOf(id.toString()) > -1)) ? 'selected' : (typeof(value) != 'undefined' && value == id ? 'selected' : '')%>>
+	<% if(name == "Low") { %>
+		{{ "Low"|trans }}
+	<% }else if(name=="Medium"){ %>
+		{{ "Medium"|trans }}
+	<%}else if(name=="High"){ %>
+		{{ "High"|trans }}
+	<% }else if(name=="Urgent") { %>
+		{{ "Urgent"|trans }}
+	<% }else if(name=="Open"){ %>
+		{{ "Open"|trans}}
+	<% }else if(name=="Pending"){ %>
+		{{"Pending"|trans}}
+	<%}else if(name=="Answered"){ %>
+	 {{ "Answered"|trans}}
+	<% }else if(name=="Closed"){ %>
+		{{ "Closed"|trans}}
+	<%}else if(name=="Resolved"){ %>
+		{{ "Resolved"|trans }}
+	<% }else{ %>
+		<%= name %>
+	<% } %></option>
 </script>
 
 <script type="text/template" id="action-value-select-for-option">
